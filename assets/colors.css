@@ -1,0 +1,176 @@
+:root {
+  /* Primary (backgrounds, light areas) */
+  --primary-light: #F5F0E6;
+  --primary: #E8D9C5;
+  --primary-dark: #D4B999;
+
+  /* Secondary (text, headings, dark accents) */
+  --secondary-light: #6B5B4D;
+  --secondary: #4A3C30;
+  --secondary-dark: #2E231B;
+
+  /* Accent (buttons, highlights, links) */
+  --accent-light: #E27D60;
+  --accent: #C66B4E;
+  --accent-dark: #A8563D;
+
+  /* Standard colors */
+  --white: #fff;
+  --black: #000;
+}
+
+/* Utility classes for custom colors */
+.bg-primary-light { background-color: var(--primary-light) !important; }
+.bg-primary { background-color: var(--primary) !important; }
+.bg-primary-dark { background-color: var(--primary-dark) !important; }
+
+.text-secondary-dark { color: var(--secondary-dark) !important; }
+.text-secondary { color: var(--secondary) !important; }
+.text-secondary-light { color: var(--secondary-light) !important; }
+
+.bg-accent { background-color: var(--accent) !important; }
+.bg-accent-dark { background-color: var(--accent-dark) !important; }
+.text-accent { color: var(--accent) !important; }
+.text-accent-dark { color: var(--accent-dark) !important; }
+
+.bg-secondary-dark { background-color: var(--secondary-dark) !important; }
+
+:root { color-scheme: light; } /* Enforce light mode only */
+
+/* Global font sizes and line heights for better readability */
+body, .text-base {
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+h1, .text-4xl, .text-3xl {
+  font-size: 2.25rem;
+  line-height: 1.2;
+}
+
+h2, .text-2xl {
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+h3, .text-xl {
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+
+/* Strong color contrast for headings and body text */
+.text-secondary-dark, h1, h2, h3, h4, h5, h6 {
+  color: #2E231B;
+}
+.text-secondary-light, body, p, .text-base {
+  color: #4A3C30;
+}
+.bg-primary-light {
+  background-color: #F5F0E6;
+}
+.bg-primary-DEFAULT {
+  background-color: #E8D9C5;
+}
+.bg-secondary-dark {
+  background-color: #2E231B;
+}
+.bg-accent, .bg-accent-DEFAULT {
+  background-color: #C66B4E;
+}
+.bg-accent-dark {
+  background-color: #A8563D;
+}
+
+/* Visually bold CTA styles */
+.cta-btn, .bg-accent, .bg-accent-DEFAULT {
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(198,107,78,0.12);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.cta-btn:hover, .bg-accent:hover, .bg-accent-DEFAULT:hover {
+  box-shadow: 0 8px 24px rgba(198,107,78,0.18);
+  transform: scale(1.04);
+  animation: cta-pulse 0.5s;
+}
+@keyframes cta-pulse {
+  0% { box-shadow: 0 4px 16px rgba(198,107,78,0.12); }
+  50% { box-shadow: 0 8px 32px rgba(198,107,78,0.25); }
+  100% { box-shadow: 0 4px 16px rgba(198,107,78,0.12); }
+}
+
+/* Larger tap targets for mobile */
+a, button, .btn, .cta-btn {
+  min-height: 48px;
+  min-width: 48px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+/* Remove outline only if replaced by accessible focus style */
+a:focus, button:focus, .btn:focus, .cta-btn:focus {
+  outline: 2px solid #C66B4E;
+  outline-offset: 2px;
+}
+
+/* Utility for visually hidden (for accessibility) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+/* Responsive images */
+img, picture, source {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure all text has strong contrast on backgrounds */
+.bg-primary-light .text-secondary-dark,
+.bg-primary-DEFAULT .text-secondary-dark,
+.bg-white .text-secondary-dark {
+  color: #2E231B;
+}
+.bg-secondary-dark .text-primary-light,
+.bg-secondary-dark .text-white {
+  color: #F5F0E6;
+}
+
+/* Keyboard navigation for all interactive elements */
+[tabindex]:not([tabindex="-1"]), a, button, input, select, textarea {
+  outline: none;
+}
+[tabindex]:not([tabindex="-1"]):focus, a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid #C66B4E;
+  outline-offset: 2px;
+}
+
+/* Remove underline, outline, box, and tap highlight from all nav and footer links globally */
+nav a,
+nav a:link,
+nav a:visited,
+nav a:active,
+nav a:focus,
+nav a:hover,
+footer a,
+footer a:link,
+footer a:visited,
+footer a:active,
+footer a:focus,
+footer a:hover {
+    text-decoration: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    background: none !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+html {
+  scroll-padding-top: 4rem; /* Adjust to match the navbar height, e.g., 64px = 4rem */
+} 
