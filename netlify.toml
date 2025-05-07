@@ -1,0 +1,7 @@
+# Netlify configuration for Trippies Clothing static website
+# Redirect root URL to landing.html as the homepage
+
+[[redirects]]
+  from = "/"
+  to = "/landing.html"
+  status = 200 
